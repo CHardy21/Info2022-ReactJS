@@ -1,0 +1,17 @@
+{
+  "name": "mi-primer-proyecto-node",
+  "version": "1.0.0",
+  "description": "Este es mi Proyecto nro 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CHardy",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
+}
