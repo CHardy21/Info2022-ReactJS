@@ -1,6 +1,10 @@
 
+// Busco en el DOM el boton listar por su id
 const $botonListar = document.querySelector('#btnListar')
+
+// Busco en el DOM el contenedor donde listaremos los productos por su id
 const $ProductList = document.querySelector('#productList');
+
 const PRODUCTOS_URL = "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
 
 // function para buscar los productos en servicios
