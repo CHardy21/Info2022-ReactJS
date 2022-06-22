@@ -1,6 +1,6 @@
-function BotonListar(){
+function BotonListar(props){
     return(
-        <button> Listar </button>
+        <button onClick={props.onClick}> Listar </button>
     )
 }
 

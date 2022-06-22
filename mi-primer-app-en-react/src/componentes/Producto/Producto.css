@@ -1,0 +1,9 @@
+.producto-box {
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.producto-box img {
+    border-radius: 10px 10px 0 0;
+ }

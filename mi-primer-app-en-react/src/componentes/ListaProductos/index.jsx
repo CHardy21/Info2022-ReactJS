@@ -1,9 +1,16 @@
 import Producto from "../Producto";
+import "./ListaProductos.css"
 
-function ListaProductos(){
+
+function ListaProductos({ productos }){
+    const listaProductos = productos.map((producto,index) => 
+        <Producto className='producto' producto={producto} key={index} />)
+
     return(
-        [1,2,3].map((value,index) => <Producto key={value} />)
+        <div class="listado-productos">
+            { listaProductos }
+        </div>
     )
-
 }
+
 export default ListaProductos;
