@@ -1,0 +1,12 @@
+
+.list-movie {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+.list-movie div {
+    margin: 5px;
+    min-width: 200px;
+}
