@@ -2,8 +2,9 @@
 .list-movie {
     display: flex;
     flex-direction: row;
-    margin: 5px;
+    justify-content: space-between;
     flex-wrap: wrap;
+    margin: 5px;
 }
 
 .list-movie div {

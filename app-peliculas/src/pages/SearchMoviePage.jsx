@@ -12,15 +12,8 @@ const SearchMoviePage = () => {
     return (
         <Container maxWidth="lg">
             <Box sx={{ bgcolor: '#cfd5fc', height: '100vh' }} >
-                <Grid container spacing={2}>
-                    <Grid item xs={12} md={12}>
-                        <Searcher onSearch={onSearch} />
-                    </Grid>
-
-                    <Grid item xs={12} md={12}>
-                        <ListMovies busqueda={busqueda} />
-                    </Grid>
-                </Grid>
+                <Searcher onSearch={onSearch} />
+                <ListMovies busqueda={busqueda} />
             </Box>
         </Container>
     );

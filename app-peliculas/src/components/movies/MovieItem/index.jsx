@@ -4,19 +4,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const MovieItem = () => {
+const MovieItem = ({Title, Poster}) => {
+    
     return (
         <Card sx={{ maxWidth: 250 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
                     height="140"
-                    image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+                    image={Poster}
                     alt="green iguana"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    {Title}
                     </Typography>
                 </CardContent>
             </CardActionArea>
