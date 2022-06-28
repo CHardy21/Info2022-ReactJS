@@ -1,10 +1,17 @@
 .searcher {
+<<<<<<< HEAD
     margin: 10px auto;
+=======
+    margin: 0 auto;
+>>>>>>> 647f71ba88218ee6b8e1c42c04f7dc5fa220b818
     display: flex;
     flex-direction: column;
     width: 300px;
     margin-top: 40px;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 647f71ba88218ee6b8e1c42c04f7dc5fa220b818
 }
 
 .searcher button {

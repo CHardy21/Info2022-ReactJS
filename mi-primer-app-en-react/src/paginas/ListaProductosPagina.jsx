@@ -52,9 +52,16 @@ function ListaProductosPagina(props) {
         setProducto(productos); 
     }
 
-    useEffect(()=>{
-        handleBotonListar();
-    },[])
+    // Estas lineas leen el servicio y carga los productos automaticamente
+    // useEffect se ejecuta cada ves q se modifique el estado
+    // useEffect(()=>{
+        // const getProductosEnServicio = async () => {
+        //     const productos = await getProductos();
+        //     setProducto(productos); 
+        // }
+    
+    //     getProductosEnServicio();
+    // },[])
 
     const miComponente = productos.length > 0 
         ? <ListaProductos productos = { productos } /> 
