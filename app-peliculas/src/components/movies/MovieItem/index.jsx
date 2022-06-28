@@ -7,7 +7,7 @@ import { CardActionArea } from '@mui/material';
 const MovieItem = ({Title, Poster}) => {
     
     return (
-        <Card sx={{ maxWidth: 250 }}>
+        <Card sx={{ maxWidth: 200 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -16,7 +16,7 @@ const MovieItem = ({Title, Poster}) => {
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h7" component="div">
                     {Title}
                     </Typography>
                 </CardContent>

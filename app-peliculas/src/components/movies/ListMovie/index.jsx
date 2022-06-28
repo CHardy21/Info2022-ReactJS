@@ -19,10 +19,17 @@ const ListMovies = ({busqueda}) => {
 
     const [movies, setMovies] = useState();
     const [loading, setLoading] = useState(false);
-
+    const [pagina, setPagina] = useState(1);
+    const [cantidadPaginas, setCantidadPaginas] = useState()
+;
     const getMovieFromService = async (busqueda) => {
         setLoading(true);
+
         const respuesta = await getMovie(busqueda);
+
+        const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
+
+        setCantidadPaginas(totalPaginas);
         setMovies(respuesta.Search);
         setLoading(false);
 
@@ -44,7 +51,7 @@ const ListMovies = ({busqueda}) => {
     return (
         <>
         <Movies movies={movies} />
-        < MyPagination />
+        < MyPagination page={pagina} count={cantidadPaginas}/>
 
         </>
     )

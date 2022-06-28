@@ -1,4 +1,4 @@
-import { Container, Box, Grid } from "@mui/material"
+import { Container, Box } from "@mui/material"
 import ListMovies from "../components/movies/ListMovie";
 import Searcher from "../components/general/Searcher"
 import { useState } from "react";
