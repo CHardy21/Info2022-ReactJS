@@ -40,6 +40,7 @@ const ListMovies = ({busqueda}) => {
     }
 
     const onChangePaginacion = () => {
+        //console.log("pagina: "+ pagina);
         setPagina(pagina+1);
         console.log("nueva Pag: " + pagina);
     }
