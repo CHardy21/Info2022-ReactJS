@@ -20,7 +20,7 @@ const ListMovies = ({busqueda}) => {
     const [movies, setMovies] = useState();
     const [loading, setLoading] = useState(false);
     const [pagina, setPagina] = useState(1);
-    const [cantidadPaginas, setCantidadPaginas] = useState()
+    const [cantidadPaginas, setCantidadPaginas] = useState();
 ;
     const getMovieFromService = async (busqueda) => {
         setLoading(true);
@@ -29,13 +29,21 @@ const ListMovies = ({busqueda}) => {
 
         const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
 
-        setCantidadPaginas(totalPaginas);
         setMovies(respuesta.Search);
+        setCantidadPaginas(totalPaginas);
         setLoading(false);
 
-    console.log(respuesta.Search);
-
+        // console.log(respuesta.Search);
+        // console.log(respuesta.totalResults);
+        // console.log("Pagina; "+pagina);
+        // console.log("Total Paginas; "+ cantidadPaginas);
     }
+
+    const onChangePaginacion = () => {
+        setPagina(pagina+1);
+        console.log("nueva Pag: " + pagina);
+    }
+
     useEffect(() => {
         if(busqueda) {
             getMovieFromService(busqueda);
@@ -51,7 +59,7 @@ const ListMovies = ({busqueda}) => {
     return (
         <>
         <Movies movies={movies} />
-        < MyPagination page={pagina} count={cantidadPaginas}/>
+        < MyPagination count={cantidadPaginas} page={pagina} onChange={onChangePaginacion} />
 
         </>
     )
