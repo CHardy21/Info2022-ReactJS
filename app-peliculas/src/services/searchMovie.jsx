@@ -1,8 +1,14 @@
-// URL del servicio
-const SERVICE_URL = "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
+import { API_KEY, OMDB_API_HOST } from "./constant";
 
-// function para buscar los productos en servicios
-export const searchMovies = async () => {
-    const movies = await fetch(SERVICE_URL);
-    return movies.json();
+export const getMovie = async (criterioBusqueda='', pagina = 1 ) => {
+    try {
+        // https://www.omdbapi.com/?s=spiderman&apikey=f1bc660c
+        const respuesta = await fetch (
+            `${OMDB_API_HOST}?s=${criterioBusqueda}&apikey=${API_KEY}&page=${pagina}`
+        );
+        return respuesta.json();
+
+    } catch (error) {
+        return { isError: true};
+    }
 }

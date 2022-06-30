@@ -22,10 +22,10 @@ const ListMovies = ({busqueda}) => {
     const [pagina, setPagina] = useState(1);
     const [cantidadPaginas, setCantidadPaginas] = useState();
 ;
-    const getMovieFromService = async (busqueda) => {
+    const getMovieFromService = async (busqueda,pagina) => {
         setLoading(true);
 
-        const respuesta = await getMovie(busqueda);
+        const respuesta = await getMovie(busqueda,pagina);
 
         const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
 
@@ -33,35 +33,36 @@ const ListMovies = ({busqueda}) => {
         setCantidadPaginas(totalPaginas);
         setLoading(false);
 
-        // console.log(respuesta.Search);
-        // console.log(respuesta.totalResults);
-        // console.log("Pagina; "+pagina);
-        // console.log("Total Paginas; "+ cantidadPaginas);
     }
 
-    const onChangePaginacion = () => {
-        //console.log("pagina: "+ pagina);
-        setPagina(pagina+1);
-        console.log("nueva Pag: " + pagina);
+    const onChangePaginacion = (_evento,pag) => {
+        setPagina(pag);
     }
 
     useEffect(() => {
         if(busqueda) {
-            getMovieFromService(busqueda);
+            getMovieFromService(busqueda,pagina);
         }
-    },[busqueda])
+    },[busqueda,pagina])
 
     
-
+// Si se esta realizando una busqueda y aun no recibo la lista de peliculas
+// muestro el Loading
     if(loading) {
         return <Loading />
     }
 
+// Si no hay peliculas ni busqueda activa no muestro nada
+// sirve para la primera ves que entro a la pagina
+    if(!movies){
+        return null;
+    }
+// cuando termina la busqueda y recibo la lista de peliculas
+// muestro mis componentes
     return (
         <>
         <Movies movies={movies} />
         < MyPagination count={cantidadPaginas} page={pagina} onChange={onChangePaginacion} />
-
         </>
     )
 }

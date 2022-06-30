@@ -13,8 +13,6 @@ const MyPagination = ({count, page, onChange}) => {
             color="primary"
           />
       </Stack>
-
-
     )
 }
 

@@ -13,7 +13,7 @@ const MovieItem = ({Title, Poster}) => {
                     component="img"
                     height="140"
                     image={Poster}
-                    alt="green iguana"
+                    alt=""
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h7" component="div">
