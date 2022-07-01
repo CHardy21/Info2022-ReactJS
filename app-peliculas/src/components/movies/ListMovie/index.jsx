@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getMovie } from "../../../services/getMovie"
+import { getMovies } from "../../../services/getMovie"
 import Loading from "../../general/Loading/Loading"
 import MyPagination from "../../general/MyPagination"
 import MovieItem from "../MovieItem"
@@ -22,10 +22,10 @@ const ListMovies = ({busqueda}) => {
     const [pagina, setPagina] = useState(1);
     const [cantidadPaginas, setCantidadPaginas] = useState();
 ;
-    const getMovieFromService = async (busqueda,pagina) => {
+    const getMoviesFromService = async (busqueda,pagina) => {
         setLoading(true);
 
-        const respuesta = await getMovie(busqueda,pagina);
+        const respuesta = await getMovies(busqueda,pagina);
 
         const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
 
@@ -41,7 +41,7 @@ const ListMovies = ({busqueda}) => {
 
     useEffect(() => {
         if(busqueda) {
-            getMovieFromService(busqueda,pagina);
+            getMoviesFromService(busqueda,pagina);
         }
     },[busqueda,pagina])
 
