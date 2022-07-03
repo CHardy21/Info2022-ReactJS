@@ -1,0 +1,14 @@
+.pelicula-pagina {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(84, 155, 247);
+    margin: 10px;
+    text-align: center;
+    padding: 40px;
+}
+
+.pelicula-pagina-description {
+    text-align: left ;
+}

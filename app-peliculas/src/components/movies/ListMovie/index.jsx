@@ -19,6 +19,7 @@ const ListMovies = ({busqueda}) => {
 
     const [movies, setMovies] = useState();
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
     const [pagina, setPagina] = useState(1);
     const [cantidadPaginas, setCantidadPaginas] = useState();
 ;
@@ -26,11 +27,14 @@ const ListMovies = ({busqueda}) => {
         setLoading(true);
 
         const respuesta = await getMovies(busqueda,pagina);
+        if (respuesta.Error){
+            setError(respuesta.Error);
+        } else {
+            const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
+            setMovies(respuesta.Search);
+            setCantidadPaginas(totalPaginas);
+        }
 
-        const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
-
-        setMovies(respuesta.Search);
-        setCantidadPaginas(totalPaginas);
         setLoading(false);
 
     }
@@ -52,11 +56,17 @@ const ListMovies = ({busqueda}) => {
         return <Loading />
     }
 
+    
+    if(error) return <div>{error}</div>;
+
 // Si no hay peliculas ni busqueda activa no muestro nada
 // sirve para la primera ves que entro a la pagina
     if(!movies){
         return null;
     }
+
+
+
 // cuando termina la busqueda y recibo la lista de peliculas
 // muestro mis componentes
     return (

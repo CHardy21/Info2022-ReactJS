@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovie } from "../services/getMovie"
 import Loading from "../components/general/Loading/Loading";
+import MovieItemDetail from "../components/movies/MovieItem/MovieItemDetail";
 
 // https://www.omdbapi.com/?s=spiderman&apikey=f1bc660c
 
@@ -31,19 +32,10 @@ const MovieDetailPage = () => {
         return <Loading />
     }
 
+    if(!movie) return null;
+
     return (
-        <section>
-            <img src={movie.Poster} />
-            <article>
-                <p>Nombre: {movie.Title}</p>
-                <p>Año: {movie.Year}</p>
-                <p>Género: {movie.Genre}</p>
-                <p>Trama: {movie.Plot}</p>
-                <p>Reparto: {movie.Actors}</p>
-            </article>
-
-
-        </section>
+        <MovieItemDetail movie={movie}/>
     )
 }
 
