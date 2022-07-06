@@ -1,8 +1,9 @@
+import logo from '../../../logo.svg';
 import "./MyHeader.css"
 
 const MyHeader = () => {
     return (
-        <header><p> -- Este es el HEADER -- </p></header>
+        <header><img src={ logo } alt="" /><p> -- Este es el HEADER -- </p></header>
     )
 }
 

@@ -2,7 +2,7 @@ import "./MyFooter.css"
 
 const MyFooter = () => {
     return(
-        <footer><p> -- Este es mi FOOTER -- </p></footer>
+        <footer><p> Copyright 2022 </p></footer>
     )
 }
 export default MyFooter

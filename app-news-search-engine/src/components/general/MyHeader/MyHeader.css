@@ -3,3 +3,7 @@ header {
     display: flex;
     background-color: brown;
 }
+
+header img {
+    max-height: 18vh;
+}

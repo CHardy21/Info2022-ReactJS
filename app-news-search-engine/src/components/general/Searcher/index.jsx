@@ -1,4 +1,3 @@
-import { Button, TextField } from "@mui/material"
 import { useState } from "react";
 import "./Searcher.css"
 
@@ -17,18 +16,9 @@ const Searcher = (props) => {
 
     return (
         <section className="searcher">
-            <TextField  
-                label="Buscar Película"
-                variant="outlined"
-                value={texto}
-                onChange={onTextoChange}
-            />
-            <Button 
-                variant="contained"
-                onClick={onButtonSearchClick}
-            >
-                Buscar
-            </Button>
+            
+            TextField - Button
+
         </section>
     )
 }
