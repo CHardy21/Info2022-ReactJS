@@ -1,5 +1,8 @@
 footer {
     display: flex;
-    background-color: brown;
     justify-content: center;
+    min-height: 6vh;;
+    font-family: 'Acme', sans-serif;
+    font-size:1em ;
 }
+

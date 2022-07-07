@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from 'react-bootstrap';
 import  'bootstrap/dist/css/bootstrap.min.css' ;
-//import "./Searcher.css"
+import "./Searcher.css"
 
 const Searcher = (props) => {
     const [texto, setTexto] = useState('');
@@ -19,7 +19,7 @@ const Searcher = (props) => {
     return (
         <section className="searcher">
             
-            <input type="text" class="form-control" placeholder="que desea buscar" aria-label="Username" aria-describedby="basic-addon1"></input>
+            <input type="text" class="form-control" placeholder="¿Qué desea buscar?" aria-label="Username" aria-describedby="basic-addon1"></input>
             <button type="button" class="btn btn-outline-primary">
                 Buscar
             </button>

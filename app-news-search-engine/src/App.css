@@ -1,4 +1,6 @@
-
+body{
+  background-color: #ebebeb !important;
+}
 .App {
   display: flex;
   text-align: center;
@@ -6,7 +8,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -49,11 +51,5 @@ main {
   display: flex;
   flex-direction: column;
   height: 80vh;
-  background-color: cornflowerblue;
-}
-header{
-  min-height: 10vh;
-}
-footer{
-  min-height: 10vh;;
+  background-color: #ebebeb;
 }
