@@ -1,5 +1,7 @@
 import { useState } from "react";
-import "./Searcher.css"
+import { Button } from 'react-bootstrap';
+import  'bootstrap/dist/css/bootstrap.min.css' ;
+//import "./Searcher.css"
 
 const Searcher = (props) => {
     const [texto, setTexto] = useState('');
@@ -13,11 +15,14 @@ const Searcher = (props) => {
             props.onSearch(texto);
         }
     }
-
+// <Button variant="btn primary">Primary</Button>{' '}
     return (
         <section className="searcher">
             
-            TextField - Button
+            <input type="text" class="form-control" placeholder="que desea buscar" aria-label="Username" aria-describedby="basic-addon1"></input>
+            <button type="button" class="btn btn-outline-primary">
+                Buscar
+            </button>
 
         </section>
     )
