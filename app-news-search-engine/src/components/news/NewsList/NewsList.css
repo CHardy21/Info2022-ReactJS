@@ -1,0 +1,26 @@
+
+.news-list-content{
+    margin: 10px 50px 10px 50px;
+}
+.news-list{
+    padding: 0px !important;
+    border-bottom: 1px solid grey;
+    height: 100%;
+}
+
+.news-list .nl-box{
+    display: flex;
+    border: 1px solid red;
+}
+.news-list .nl-box .nl-box-content {
+    max-width: 70%;
+    border: 2px solid rgb(17, 0, 255);
+}
+
+.news-list .nl-box .nl-box-image {
+    max-width: 30%;
+    border: 2px solid rgb(145, 255, 0);
+}
+.nl-box-image img{
+    width: 100%;
+}
