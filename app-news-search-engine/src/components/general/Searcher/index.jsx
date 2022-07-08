@@ -8,7 +8,6 @@ const Searcher = (props) => {
     const onTextoChange = (evento) => {
         //console.log(evento.target.value);
             setTexto(evento.target.value)
-
     }
     
     const onButtonSearchClick = () =>{

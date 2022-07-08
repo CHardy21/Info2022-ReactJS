@@ -9,7 +9,7 @@ export const getNewsList = async (criterioBusqueda='', pagina = 1 ) => {
         return respuesta.json();
 
     } catch (error) {
-        return { isError: true};
+        return {  };
 
     }
 }
