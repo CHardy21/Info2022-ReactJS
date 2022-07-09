@@ -1,16 +1,18 @@
 
 .news-list-content{
     margin: 10px 50px 10px 50px;
+   border-bottom: 1px solid grey;
 }
 .news-list{
     padding: 0px !important;
-    border-bottom: 1px solid grey;
+ 
     height: 100%;
 }
 
 .news-list .nl-box{
     display: flex;
-    border: 1px solid red;
+    justify-content: space-between;
+    /* border: 2px solid red; */
 }
 .news-list .nl-box .nl-box-content {
     max-width: 70%;

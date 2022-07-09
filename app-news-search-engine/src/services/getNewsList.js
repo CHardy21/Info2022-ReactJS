@@ -4,7 +4,7 @@ export const getNewsList = async (criterioBusqueda='', pagina = 1 ) => {
     try {
         // https://newsapi.org/v2/everything?q=bitcoin&apiKey=API_KEY&page=1&pageSize=10
         const respuesta = await fetch (
-            `${NEWS_API_HOST}?s=${criterioBusqueda}&apikey=${API_KEY}&page=${pagina}&pageSize=10&language=es`
+            `${NEWS_API_HOST}?q=${criterioBusqueda}&apikey=${API_KEY}&page=${pagina}&pageSize=10&language=es`
         );
         return respuesta.json();
 
