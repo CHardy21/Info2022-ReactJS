@@ -19,21 +19,24 @@ const News = ({news}) => {
 const NewsList = ({busqueda}) => {
     const [news,setNews]= useState();
     const [loading,setLoading] = useState(false);
-    const [pagina,  setPagina] = useState();
+    const [pagina,  setPagina] = useState(1);
+    const [cantidadPaginas,setCantidadPaginas] = useState(0);
 
-    const getNewsFromService = async () => {
+    const getNewsFromService = async (busqueda,pagina) => {
         setLoading(true); // usado para mostrar el loading mientras espero al servicio
-        const respuesta = await getNewsList(busqueda)
+        const respuesta = await getNewsList(busqueda,pagina)
         
         console.log(respuesta)
         // ver si incluyo estas lineas
-        if(respuesta.status="error") {
-            console.log(respuesta.message)
-        }
+        // if(respuesta.status="error") {
+        //     console.log(respuesta.message)
+        // }
         // ----------------------------
 
         setNews(respuesta.articles)
-        
+        const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
+        setCantidadPaginas(totalPaginas);
+     
         //console.log(respuesta.articles)
         setLoading(false)
     }
@@ -42,9 +45,14 @@ const NewsList = ({busqueda}) => {
     useEffect(()=> {
         if(busqueda){
             console.log("Se llamo al servicio")
-            getNewsFromService();
+            getNewsFromService(busqueda,pagina);
         }
-    },[busqueda])
+    },[busqueda,pagina])
+
+    const onChangePaginacion = (_evento,pag) => {
+        setPagina(pag);
+    }
+
 
     if(loading){
         return <Loading />
@@ -53,7 +61,7 @@ const NewsList = ({busqueda}) => {
     return (
         <section className="news-list-content" >
             < News  news={news}/>
-            < MyPagination />
+            < MyPagination page={pagina} count={cantidadPaginas} onChenge={onChangePaginacion} />
         </section>
     )
 }

@@ -6,7 +6,7 @@ import "./Searcher.css"
 const Searcher = (props) => {
     const [texto, setTexto] = useState('');
     const onTextoChange = (evento) => {
-        console.log(evento);
+        //console.log(evento);
             setTexto(evento.target.value)
     }
 
