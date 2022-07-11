@@ -19,24 +19,33 @@ const News = ({news}) => {
 const NewsList = ({busqueda}) => {
     const [news,setNews]= useState();
     const [loading,setLoading] = useState(false);
+    const [pagina,  setPagina] = useState();
 
     const getNewsFromService = async () => {
         setLoading(true); // usado para mostrar el loading mientras espero al servicio
         const respuesta = await getNewsList(busqueda)
         
         console.log(respuesta)
+        // ver si incluyo estas lineas
+        if(respuesta.status="error") {
+            console.log(respuesta.message)
+        }
+        // ----------------------------
+
         setNews(respuesta.articles)
         
-        console.log(respuesta.articles)
+        //console.log(respuesta.articles)
         setLoading(false)
     }
 
     // llamada al servicio
     useEffect(()=> {
-        getNewsFromService();
+        if(busqueda){
+            console.log("Se llamo al servicio")
+            getNewsFromService();
+        }
     },[busqueda])
 
-    //console.log(props.news)
     if(loading){
         return <Loading />
     }

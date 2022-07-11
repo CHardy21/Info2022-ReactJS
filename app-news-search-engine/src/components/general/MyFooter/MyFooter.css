@@ -4,5 +4,6 @@ footer {
     min-height: 6vh;;
     font-family: 'Acme', sans-serif;
     font-size:1em ;
+    border-top: 2px solid yellow;
 }
 
