@@ -17,8 +17,8 @@ const Searcher = (props) => {
     const onKeyDown = (e) => {
         // 'keypress' event misbehaves on mobile so we track 'Enter' key via 'keydown' event
         if (e.key === 'Enter') {
-           e.preventDefault();
-           e.stopPropagation();
+        //    e.preventDefault();
+        //    e.stopPropagation();
         //   this.onSubmit();
         //    console.log("Presiono Enter");
             onButtonSearchClick();

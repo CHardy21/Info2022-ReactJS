@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import  'bootstrap/dist/css/bootstrap.min.css' ;
+//import  'bootstrap/dist/css/bootstrap.min.css' ;
 import './App.css';
 import MyHeader from "./components/general/MyHeader";
 import MyFooter from "./components/general/MyFooter";

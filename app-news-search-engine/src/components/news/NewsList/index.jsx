@@ -7,9 +7,12 @@ import MyPagination from "../../general/MyPagination"
 import NewsItem from "../NewsItem"
 import "./NewsList.css"
 
-const News = ({news}) => {
+const News = ({data}) => {
+    //console.log("viendo array pasado por parametro: "+data)
+    const news = data.articles;
     return(
         <div className="news-list">
+            <p>Estas viendo {news.length} noticias de {data.totalResults} resultados. </p>
             { news && news.map((val,index) => <NewsItem key={index} {...val}/>) }
         </div>
         
@@ -17,7 +20,8 @@ const News = ({news}) => {
 }
 
 const NewsList = ({busqueda}) => {
-    const [news,setNews]= useState();
+    //const [news,setNews]= useState();
+    const [data, setData] = useState();
     const [loading,setLoading] = useState(false);
     const [pagina,  setPagina] = useState(1);
     const [cantidadPaginas,setCantidadPaginas] = useState(0);
@@ -27,13 +31,15 @@ const NewsList = ({busqueda}) => {
         const respuesta = await getNewsList(busqueda,pagina)
         
         console.log(respuesta)
+        setData(respuesta);
+
         // ver si incluyo estas lineas
         // if(respuesta.status="error") {
         //     console.log(respuesta.message)
         // }
         // ----------------------------
 
-        setNews(respuesta.articles)
+        //setNews(respuesta.articles)
         const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
         setCantidadPaginas(totalPaginas);
      
@@ -50,18 +56,23 @@ const NewsList = ({busqueda}) => {
     },[busqueda,pagina])
 
     const onChangePaginacion = (_evento,pag) => {
+        console.log(pag);
         setPagina(pag);
     }
-
 
     if(loading){
         return <Loading />
     }
+    // Si no hay peliculas ni busqueda activa no muestro nada
+    // sirve para la primera ves que entro a la pagina
+    if (!data || !data.articles) {
+        return null;
+    }
 
     return (
         <section className="news-list-content" >
-            < News  news={news}/>
-            < MyPagination page={pagina} count={cantidadPaginas} onChenge={onChangePaginacion} />
+            < News  data={data}/>
+            < MyPagination page={pagina} count={cantidadPaginas} onChange={onChangePaginacion} />
         </section>
     )
 }

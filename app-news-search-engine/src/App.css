@@ -50,6 +50,6 @@ body{
 main {
   display: flex;
   flex-direction: column;
-  min-height: 74vh;
+  min-height: 70vh;
   background-color: #ebebeb;
 }
