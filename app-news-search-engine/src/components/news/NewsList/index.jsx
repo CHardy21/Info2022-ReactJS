@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getNewsList } from "../../../services/getNewsList"
@@ -12,7 +11,7 @@ const News = ({data}) => {
     const news = data.articles;
     return(
         <div className="news-list">
-            <p>Estas viendo {news.length} noticias de {data.totalResults} resultados. </p>
+            <p >Estas viendo <b>{news.length}</b> noticias de <b>{data.totalResults}</b> resultados. </p>
             { news && news.map((val,index) => <NewsItem key={index} {...val}/>) }
         </div>
         
