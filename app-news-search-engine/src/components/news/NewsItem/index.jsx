@@ -3,13 +3,16 @@ import { DateTime } from "luxon";
 
 const NewsItem = ({ title, description, publishedAt, urlToImage }) => {
     
-    //const dt = DateTime.fromISO({publishedAt})
-    const dt =DateTime.fromFormat({publishedAt}, 'MMMM dd, yyyy')
 
-    console.log(dt)
+    console.log(typeof({publishedAt}));// object
+    const myDateTime = DateTime.fromISO({publishedAt})
+    const myDateTime2 = myDateTime.ts
+    console.log( myDateTime)
+    console.log("myDateTime2 =>> "+ myDateTime2)
+    //console.log("myDateTime3 =>> "+ myDateTime3)
 
     return (
-        <article className="nl-box">
+        <article className="nl-box"> 
             <div className="nl-box-content">
                 <h1>{title}</h1>
                 <p>{description}</p>
