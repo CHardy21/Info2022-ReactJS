@@ -7,19 +7,17 @@ import NewsItem from "../NewsItem"
 import "./NewsList.css"
 
 const News = ({data}) => {
-    //console.log("viendo array pasado por parametro: "+data)
     const news = data.articles;
+
     return(
         <div className="news-list">
             <p >Estas viendo <b>{news.length}</b> noticias de <b>{data.totalResults}</b> resultados. </p>
             { news && news.map((val,index) => <NewsItem key={index} {...val}/>) }
         </div>
-        
     )
 }
 
 const NewsList = ({busqueda}) => {
-    //const [news,setNews]= useState();
     const [data, setData] = useState();
     const [loading,setLoading] = useState(false);
     const [pagina,  setPagina] = useState(1);
@@ -29,13 +27,19 @@ const NewsList = ({busqueda}) => {
         setLoading(true); // usado para mostrar el loading mientras espero al servicio
         const respuesta = await getNewsList(busqueda,pagina)
         
-        console.log(respuesta)
-        setData(respuesta);
+        //console.log(respuesta)
+        setData(respuesta);    
 
         // ver si incluyo estas lineas
-        // if(respuesta.status="error") {
-        //     console.log(respuesta.message)
-        // }
+        if( respuesta.status === "error") {
+            console.log("ERROR: ",respuesta.message);
+            return (
+                <>
+                <p>Ooopsss!!! Algo ha salido mal.</p>
+                <p>Error: {respuesta.message}</p>
+                </>
+            )
+        }
         // ----------------------------
 
         //setNews(respuesta.articles)
@@ -48,7 +52,8 @@ const NewsList = ({busqueda}) => {
 
     // llamada al servicio
     useEffect(()=> {
-        if(busqueda){
+        // Verifica que haya alguna busqueda y que tenga al menos 3 caracteres
+        if(busqueda && busqueda.length>2){
             console.log("Se llamo al servicio")
             getNewsFromService(busqueda,pagina);
         }
@@ -62,9 +67,10 @@ const NewsList = ({busqueda}) => {
     if(loading){
         return <Loading />
     }
-    // Si no hay peliculas ni busqueda activa no muestro nada
+    // Si no hay noticias ni busqueda activa no muestro nada
     // sirve para la primera ves que entro a la pagina
     if (!data || !data.articles) {
+        //console.log("estoy aca")
         return null;
     }
 

@@ -3,20 +3,18 @@ import { DateTime } from "luxon";
 
 const NewsItem = ({ title, description, publishedAt, urlToImage }) => {
     
+    const myDateTime = DateTime.fromISO(publishedAt)
+    const fechaPublicacion = myDateTime.toFormat("dd-MM-yyyy")
+    const horaPublicacion = myDateTime.toFormat("HH:mm")
+    //console.log("ok? ",myDateTime.toFormat("dd-MM-yyyy HH:mm"))
 
-    console.log(typeof({publishedAt}));// object
-    const myDateTime = DateTime.fromISO({publishedAt})
-    const myDateTime2 = myDateTime.ts
-    console.log( myDateTime)
-    console.log("myDateTime2 =>> "+ myDateTime2)
-    //console.log("myDateTime3 =>> "+ myDateTime3)
 
     return (
         <article className="nl-box"> 
             <div className="nl-box-content">
                 <h1>{title}</h1>
                 <p>{description}</p>
-                <span>Publicado el: {publishedAt}</span>
+                <span>Publicado el: {fechaPublicacion} a las {horaPublicacion} hs.</span>
             </div>
             <div className="nl-box-image">
                 <img src={urlToImage} alt="" className="img-fluid"/>
