@@ -27,6 +27,7 @@
     flex: 1 1 auto;
     /* max-height: 54vh; */
     overflow: auto;
+    cursor: pointer;
 
 }
 .news-list .nl-box .nl-box-content {
@@ -46,7 +47,7 @@
     font-weight: 500;
     line-height: 1.2;
     font-size: calc(1.375rem + .5vw);
-    color: midnightblue;
+    color: #0a58ca;
     /* border: 2px solid rgb(233, 29, 56);*/
 } 
 .nl-box .nl-box-content p{
@@ -64,7 +65,20 @@
     /* border: 2px solid rgb(145, 255, 0); */
     background-color: black;
 }
+@if(.nl-box-image (heigth > img:width )){
+    height: 100%;
+    vertical-align: middle;
+}
+
+
 .nl-box-image img{
     width: 100%;
     vertical-align: middle;
+}
+
+.source {
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 5px;
+    border: 0px;;
 }

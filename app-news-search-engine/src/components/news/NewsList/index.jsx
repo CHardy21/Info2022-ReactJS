@@ -12,7 +12,9 @@ const News = ({data}) => {
     return(
         <div className="news-list">
             <p >Estas viendo <b>{news.length}</b> noticias de <b>{data.totalResults}</b> resultados. </p>
-            { news && news.map((val,index) => <NewsItem key={index} {...val}/>) }
+            { news && news.map((val,index) => 
+                <NewsItem key={index} {...val}/>
+            )}
         </div>
     )
 }
@@ -27,12 +29,13 @@ const NewsList = ({busqueda}) => {
         setLoading(true); // usado para mostrar el loading mientras espero al servicio
         const respuesta = await getNewsList(busqueda,pagina)
         
-        //console.log(respuesta)
+        console.log(respuesta)
         setData(respuesta);    
 
         // ver si incluyo estas lineas
         if( respuesta.status === "error") {
             console.log("ERROR: ",respuesta.message);
+            setLoading(false);
             return (
                 <>
                 <p>Ooopsss!!! Algo ha salido mal.</p>
@@ -42,12 +45,11 @@ const NewsList = ({busqueda}) => {
         }
         // ----------------------------
 
-        //setNews(respuesta.articles)
+        
         const totalPaginas = Math.ceil(parseInt(respuesta.totalResults)/10);
         setCantidadPaginas(totalPaginas);
      
-        //console.log(respuesta.articles)
-        setLoading(false)
+        setLoading(false);
     }
 
     // llamada al servicio
@@ -72,6 +74,12 @@ const NewsList = ({busqueda}) => {
     if (!data || !data.articles) {
         //console.log("estoy aca")
         return null;
+    }
+
+    if(!data.totalResults){
+        return(
+            <center><h2>No existen resultados para la busqueda</h2></center>
+        )
     }
 
     return (
